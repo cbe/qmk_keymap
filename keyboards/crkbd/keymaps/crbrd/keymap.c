@@ -38,28 +38,19 @@ combo_t key_combos[] = {
     COMBO(num_backspace, KC_BSPC)
 };
 
+// Custom Tap-Hold
 // See: https://getreuer.info/posts/keyboards/triggers/index.html#tap-vs.-long-press
 // Helper for implementing tap vs. long-press keys. Given a tap-hold
 // key event, replaces the hold function with `long_press_keycode`.
-static bool process_tap_or_long_press_key(
-    keyrecord_t* record, uint16_t long_press_keycode) {
-  if (record->tap.count == 0) {  // Key is being held.
-    if (record->event.pressed) {
-      tap_code16(long_press_keycode);
-    }
-    return false;  // Skip default handling.
-  }
-  return true;  // Continue default handling.
-}
-
-// Custom Tap-Hold
-bool process_record_user(uint16_t keycode, keyrecord_t* record) {
-    switch (keycode) {
-      case C_ALT_F4:  // F4 on tap, Alt + F4 on hold
-        return process_tap_or_long_press_key(record, LALT(KC_F4));
+static bool process_tap_or_long_press_key(keyrecord_t* record, uint16_t long_press_keycode) {
+    if (record->tap.count == 0) {  // Key is being held.
+        if (record->event.pressed) {
+            tap_code16(long_press_keycode);
+        }
+        return false;  // Skip default handling.
     }
 
-    return true;
+    return true;  // Continue default handling.
 }
 
 // Keep track of the current default layer
@@ -80,6 +71,17 @@ void matrix_scan_user(void) {
     track_default_layer();
 }
 
+// Key processing
+bool process_record_user(uint16_t keycode, keyrecord_t* record) {
+    switch (keycode) {
+        case C_ALT_F4:  // F4 on tap, Alt + F4 on hold
+            return process_tap_or_long_press_key(record, LALT(KC_F4));
+    }
+
+    return true;
+}
+
+// Keymap
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_BASE_HD] = LAYOUT_split_3x6_3(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
@@ -279,7 +281,7 @@ LT(_FN,KC_ESC),KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, XXXXXXX,                     
             // Operating system
             oled_write("OS: ", false);
             const os_variant_t detected_os = detected_host_os();
-            switch(detected_os) {
+            switch (detected_os) {
                 case OS_LINUX:
                     oled_write("Linux", false);
                     break;
