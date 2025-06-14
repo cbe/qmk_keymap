@@ -23,8 +23,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define CHORDAL_HOLD
 #define FLOW_TAP_TERM 150
 #define OLED_TIMEOUT 10000
-#define PERMISSIVE_HOLD
-#define TAPPING_TERM 220
+#define QUICK_TAP_TERM 120
+#define TAPPING_TERM 180
+#define TAPPING_TERM_PER_KEY
 
 // Custom keycodes to keep keymap a little less cluttered, see:
 // https://docs.qmk.fm/faq_keymap#how-can-i-make-custom-names-for-complex-keycodes
