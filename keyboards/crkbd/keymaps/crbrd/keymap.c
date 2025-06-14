@@ -53,6 +53,41 @@ static bool process_tap_or_long_press_key(keyrecord_t* record, uint16_t long_pre
     return true;  // Continue default handling.
 }
 
+// Tapping term per key
+const int LAYER_SWITCH_TAPPING_TERM_REDUCTION = 40;
+uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+        case LT(_NUM,KC_SPC):
+        case LT(_NAV,KC_TAB):
+        case LT(_MED,KC_ENT):
+        case LT(_SYM,KC_BSPC):
+        case LT(_FN,KC_ESC):
+            return TAPPING_TERM - LAYER_SWITCH_TAPPING_TERM_REDUCTION;
+        default:
+            return TAPPING_TERM;
+    }
+}
+
+// Flow tap per key
+// See: https://docs.qmk.fm/tap_hold#is-flow-tap-key
+bool is_flow_tap_key(uint16_t keycode) {
+    if ((get_mods() & (MOD_MASK_CG | MOD_BIT_LALT)) != 0) {
+        return false; // Disable Flow Tap on hotkeys.
+    }
+
+    switch (get_tap_keycode(keycode)) {
+        case KC_A ... KC_E: // Exclude 'KC_F' as it's required for umlauts (via 'RALT_T', see 'HD2_LRA')
+        case KC_G ... KC_Z:
+        case KC_DOT:
+        case KC_COMM:
+        case KC_SCLN:
+        case KC_SLSH:
+            return true;
+    }
+
+    return false;
+}
+
 // Keep track of the current default layer
 int default_layer = _BASE_HD;
 void track_default_layer(void) {
