@@ -66,8 +66,25 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define C_ALT_F4 LT(0, KC_F4)
 
 #ifdef RGBLIGHT_ENABLE
-    #define RGBLIGHT_LIMIT_VAL 120
-    #define RGBLIGHT_HUE_STEP 10
-    #define RGBLIGHT_SAT_STEP 17
-    #define RGBLIGHT_VAL_STEP 17
+    #define RGBLIGHT_LIMIT_VAL 64
+
+    // Custom colors
+    #define RGB_CATPPUCCIN_SKY 0x04, 0xA5, 0xE5
+    #define RGB_CATPPUCCIN_GREEN 0x40, 0xA0, 0x2B
+    #define RGB_CATPPUCCIN_YELLOW 0xDF, 0x8E, 0x1D
+    #define RGB_CATPPUCCIN_MAROON 0xE6, 0x45, 0x53
+    #define RGB_CATPPUCCIN_MAUVE 0x88, 0x39, 0xEF
+    #define RGB_CATPPUCCIN_PINK 0xEA, 0x76, 0xCB
+
+    // Disable all animations to save space
+    #undef RGBLIGHT_EFFECT_ALTERNATING
+    #undef RGBLIGHT_EFFECT_BREATHING
+    #undef RGBLIGHT_EFFECT_CHRISTMAS
+    #undef RGBLIGHT_EFFECT_KNIGHT
+    #undef RGBLIGHT_EFFECT_RAINBOW_MOOD
+    #undef RGBLIGHT_EFFECT_RAINBOW_SWIRL
+    #undef RGBLIGHT_EFFECT_RGB_TEST
+    #undef RGBLIGHT_EFFECT_SNAKE
+    #undef RGBLIGHT_EFFECT_STATIC_GRADIENT
+    #undef RGBLIGHT_EFFECT_TWINKLE
 #endif
