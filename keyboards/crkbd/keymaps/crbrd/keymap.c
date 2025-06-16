@@ -180,11 +180,11 @@ LT(_FN,KC_ESC),KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, XXXXXXX,                     
 
     [_MED] = LAYOUT_split_3x6_3(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-      XXXXXXX, XXXXXXX, UG_HUEU, XXXXXXX, UG_TOGG, XXXXXXX,                      XXXXXXX, KC_HYPR,  KC_MEH, KC_RALT, XXXXXXX, XXXXXXX,
+      XXXXXXX, XXXXXXX, XXXXXXX, KC_MPLY, KC_MUTE, UG_TOGG,                      XXXXXXX, KC_HYPR,  KC_MEH, KC_RALT, XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      XXXXXXX, XXXXXXX, KC_MPLY, XXXXXXX, KC_VOLU, UG_VALU,                      XXXXXXX, KC_RSFT, KC_RCTL, KC_LALT, KC_RGUI, XXXXXXX,
+   XXXXXXX,XXXXXXX,HYPR(KC_F12), KC_MNXT, KC_VOLU, UG_VALU,                      XXXXXXX, KC_RSFT, KC_RCTL, KC_LALT, KC_RGUI, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      XXXXXXX, KC_MPRV, KC_MNXT, KC_MUTE, KC_VOLD, UG_VALD,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+      XXXXXXX, XXXXXXX, XXXXXXX, KC_MPRV, KC_VOLD, UG_VALD,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                         XXXXXXX,          XXXXXXX,          XXXXXXX,             _______,          XXXXXXX, XXXXXXX
                     //`--------------------------------------------'  `--------------------------------------------'
