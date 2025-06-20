@@ -3,6 +3,7 @@ COMBO_ENABLE = yes
 CONVERT_TO=helios # Ensure compilation to .uf2
 LAYER_LOCK_ENABLE = yes
 LTO_ENABLE = yes
+MOUSEKEY_ENABLE = yes
 NKRO_ENABLE = yes
 OS_DETECTION_ENABLE = yes
 RGB_MATRIX_ENABLE = no

@@ -72,3 +72,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     #define RGBLIGHT_SAT_STEP 17
     #define RGBLIGHT_VAL_STEP 17
 #endif
+
+#ifdef MOUSEKEY_ENABLE
+    #define MOUSEKEY_DELAY 2
+    #define MOUSEKEY_INTERVAL 15
+    #define MOUSEKEY_MAX_SPEED 8
+    #define MOUSEKEY_TIME_TO_MAX 80
+#endif

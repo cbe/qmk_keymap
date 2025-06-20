@@ -25,6 +25,7 @@ enum layers {
     _NAV,
     _SYM,
     _MED,
+    _MOUSE,
     _FN
 };
 
@@ -109,7 +110,11 @@ void matrix_scan_user(void) {
 // Key processing
 bool process_record_user(uint16_t keycode, keyrecord_t* record) {
     switch (keycode) {
-        case C_ALT_F4:  // F4 on tap, Alt + F4 on hold
+        // Left click on tap, Middle click on hold
+        case MS_BTN1:
+            return process_tap_or_long_press_key(record, MS_BTN3);
+        // F4 on tap, Alt + F4 on hold
+        case C_ALT_F4:
             return process_tap_or_long_press_key(record, LALT(KC_F4));
     }
 
@@ -187,6 +192,18 @@ LT(_FN,KC_ESC),KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, XXXXXXX,                     
       XXXXXXX, XXXXXXX, XXXXXXX, KC_MPRV, KC_VOLD, UG_VALD,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                         XXXXXXX,          XXXXXXX,          XXXXXXX,             _______,          XXXXXXX, XXXXXXX
+                    //`--------------------------------------------'  `--------------------------------------------'
+  ),
+
+    [_MOUSE] = LAYOUT_split_3x6_3(
+  //,-----------------------------------------------------.                    ,-----------------------------------------------------.
+      XXXXXXX, XXXXXXX, KC_RALT,  KC_MEH, KC_HYPR, XXXXXXX,                      MS_WHLU, MS_WHLL,   MS_UP, MS_WHLR, XXXXXXX, XXXXXXX,
+  //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
+      XXXXXXX, KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, XXXXXXX,                      MS_WHLD, MS_LEFT, MS_DOWN, MS_RGHT, XXXXXXX, XXXXXXX,
+  //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
+      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, QK_LLCK,
+  //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
+                        XXXXXXX,          XXXXXXX,          _______,             MS_BTN2,          MS_BTN1, XXXXXXX
                     //`--------------------------------------------'  `--------------------------------------------'
   ),
 
@@ -363,6 +380,9 @@ LT(_FN,KC_ESC),KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, XXXXXXX,                     
                         break;
                     case _MED:
                         oled_write("media", false);
+                        break;
+                    case _MOUSE:
+                        oled_write("mouse", false);
                         break;
                     case _FN:
                         oled_write("function", false);
