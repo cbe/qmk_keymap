@@ -33,10 +33,12 @@ enum layers {
 const uint16_t PROGMEM num_arrow[]     = {KC_4, KC_EQL , COMBO_END};
 const uint16_t PROGMEM num_colon[]     = {KC_4, KC_ASTR, COMBO_END};
 const uint16_t PROGMEM num_backspace[] = {KC_4, KC_0   , COMBO_END};
+const uint16_t PROGMEM caps_word[]     = {KC_W, KC_F   , COMBO_END};
 combo_t key_combos[] = {
     COMBO(num_arrow    , KC_GT  ),
     COMBO(num_colon    , KC_SCLN),
-    COMBO(num_backspace, KC_BSPC)
+    COMBO(num_backspace, KC_BSPC),
+    COMBO(caps_word    , CW_TOGG)
 };
 
 // Custom Tap-Hold
@@ -129,7 +131,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
        KC_ESC, HD3_LGU, HD3_LLA, HD3_LCT, HD3_LSH,    KC_B,                      KC_COMM, HD3_RSH, HD3_RCT, HD3_RLA, HD3_RGU,    KC_J,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      CW_TOGG,    KC_X,    KC_C,    KC_L,    KC_D,    KC_G,                      KC_SCLN,    KC_U,    KC_O,    KC_Y,    KC_K, KC_BSLS,
+      XXXXXXX,    KC_X,    KC_C,    KC_L,    KC_D,    KC_G,                      KC_SCLN,    KC_U,    KC_O,    KC_Y,    KC_K, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                         XXXXXXX,  LT(_NUM,KC_SPC),  LT(_NAV,KC_TAB),     LT(_MED,KC_ENT), LT(_SYM,KC_BSPC), XXXXXXX
                     //`--------------------------------------------'  `--------------------------------------------'
@@ -141,7 +143,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
        KC_ESC, HR3_LGU, HR3_LLA, HR3_LCT, HR3_LSH,    KC_G,                         KC_H, HR3_RSH, HR3_RCT, HR3_RLA, HR3_RGU, KC_QUOT,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      CW_TOGG,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                         KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH, KC_BSLS,
+      XXXXXXX,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                         KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                         XXXXXXX,  LT(_NUM,KC_SPC),  LT(_NAV,KC_TAB),     LT(_MED,KC_ENT), LT(_SYM,KC_BSPC), XXXXXXX
                     //`--------------------------------------------'  `--------------------------------------------'
@@ -179,7 +181,7 @@ LT(_FN,KC_ESC),KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, XXXXXXX,                     
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       XXXXXXX, KC_AMPR, KC_RCBR, KC_RBRC, KC_RPRN,  KC_GRV,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                        XXXXXXX,          XXXXXXX,          XXXXXXX,             XXXXXXX,          _______, XXXXXXX
+                        XXXXXXX,           KC_SPC,          KC_BSLS,             XXXXXXX,          _______, XXXXXXX
                     //`--------------------------------------------'  `--------------------------------------------'
   ),
 
