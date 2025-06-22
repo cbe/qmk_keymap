@@ -1,0 +1,363 @@
+layout: { qmk_keyboard: crkbd/rev1, layout_name: LAYOUT_split_3x6_3 }
+layers:
+  BASE_HD:
+    [
+      DF(BASE_QW),
+      W,
+      F,
+      M,
+      P,
+      V,
+      /,
+      .,
+      Q,
+      "'",
+      Z,
+      "",
+      ESC,
+      R,
+      S,
+      N,
+      T,
+      B,
+      ",",
+      A,
+      E,
+      I,
+      H,
+      J,
+      "",
+      X,
+      C,
+      L,
+      D,
+      G,
+      ;,
+      U,
+      O,
+      Y,
+      K,
+      "",
+      "",
+      { t: $$mdi:keyboard-space$$, h: NUM },
+      { t: $$mdi:keyboard-tab$$, h: NAV },
+      { t: $$mdi:keyboard-return$$, h: MED },
+      { t: $$mdi:backspace-outline$$, h: SYM },
+      "",
+    ]
+  BASE_QW:
+    [
+      DF(BASE_HD),
+      Q,
+      W,
+      E,
+      R,
+      T,
+      Y,
+      U,
+      I,
+      O,
+      P,
+      "",
+      ESC,
+      A,
+      S,
+      D,
+      F,
+      G,
+      H,
+      J,
+      K,
+      L,
+      ;,
+      "'",
+      "",
+      Z,
+      X,
+      C,
+      V,
+      B,
+      N,
+      M,
+      ",",
+      .,
+      /,
+      "",
+      "",
+      { t: $$mdi:keyboard-space$$, h: NUM },
+      { t: $$mdi:keyboard-tab$$, h: NAV },
+      { t: $$mdi:keyboard-return$$, h: MED },
+      { t: $$mdi:backspace-outline$$, h: SYM },
+      "",
+    ]
+  NUM:
+    - ""
+    - ""
+    - RALT
+    - MEH
+    - HYPR
+    - ""
+    - "-"
+    - "7"
+    - "8"
+    - "9"
+    - /
+    - ""
+    - { t: ESC, h: FN }
+    - LGUI
+    - LALT
+    - LCTL
+    - LSFT
+    - ""
+    - +
+    - "4"
+    - "5"
+    - "6"
+    - "*"
+    - ""
+    - ""
+    - ""
+    - ""
+    - ""
+    - ""
+    - ""
+    - .
+    - "1"
+    - "2"
+    - "3"
+    - "="
+    - ""
+    - ""
+    - { t: ▽, type: trans }
+    - ""
+    - DEL
+    - "0"
+    - ""
+  NAV:
+    - ""
+    - ""
+    - RALT
+    - MEH
+    - HYPR
+    - ""
+    - PGUP
+    - HOME
+    - UP
+    - END
+    - Alt+LEFT
+    - ""
+    - ""
+    - LGUI
+    - LALT
+    - LCTL
+    - LSFT
+    - ""
+    - PGDN
+    - LEFT
+    - DOWN
+    - RGHT
+    - Alt+RGHT
+    - ""
+    - ""
+    - ""
+    - ""
+    - ""
+    - ""
+    - ""
+    - ""
+    - Ctl+Sft+TAB
+    - Ctl+TAB
+    - ""
+    - QK LLCK
+    - ""
+    - ""
+    - ""
+    - { t: ▽, type: trans }
+    - ""
+    - ""
+    - ""
+  SYM:
+    - ""
+    - "!"
+    - "@"
+    - "#"
+    - $
+    - "%"
+    - ""
+    - HYPR
+    - MEH
+    - RALT
+    - ""
+    - ""
+    - ""
+    - ^
+    - "{"
+    - "["
+    - (
+    - "~"
+    - ""
+    - RSFT
+    - RCTL
+    - LALT
+    - RGUI
+    - ""
+    - ""
+    - "&"
+    - "}"
+    - "]"
+    - )
+    - "`"
+    - ""
+    - ""
+    - ""
+    - ""
+    - ""
+    - ""
+    - ""
+    - SPC
+    - \
+    - ""
+    - { t: ▽, type: trans }
+    - ""
+  MED:
+    - ""
+    - ""
+    - ""
+    - MPLY
+    - MUTE
+    - UG TOGG
+    - ""
+    - HYPR
+    - MEH
+    - RALT
+    - ""
+    - ""
+    - ""
+    - ""
+    - Mute Mic
+    - MNXT
+    - VOLU
+    - UG VALU
+    - ""
+    - RSFT
+    - RCTL
+    - LALT
+    - RGUI
+    - ""
+    - ""
+    - ""
+    - ""
+    - MPRV
+    - VOLD
+    - UG VALD
+    - ""
+    - ""
+    - ""
+    - ""
+    - ""
+    - ""
+    - ""
+    - ""
+    - ""
+    - { t: ▽, type: trans }
+    - ""
+    - ""
+  MOUSE:
+    - ""
+    - ""
+    - RALT
+    - MEH
+    - HYPR
+    - ""
+    - MS WHLU
+    - MS WHLL
+    - MS UP
+    - MS WHLR
+    - ""
+    - ""
+    - ""
+    - LGUI
+    - LALT
+    - LCTL
+    - LSFT
+    - ""
+    - MS WHLD
+    - MS LEFT
+    - MS DOWN
+    - MS RGHT
+    - ""
+    - ""
+    - ""
+    - ""
+    - ""
+    - ""
+    - ""
+    - ""
+    - ""
+    - ""
+    - ""
+    - ""
+    - QK LLCK
+    - ""
+    - ""
+    - ""
+    - { t: ▽, type: trans }
+    - MS BTN2
+    - MS BTN1
+    - ""
+  FN:
+    - ""
+    - ""
+    - RALT
+    - MEH
+    - HYPR
+    - ""
+    - F12
+    - F7
+    - F8
+    - F9
+    - PSCR
+    - ""
+    - { t: ▽, type: trans }
+    - LGUI
+    - LALT
+    - LCTL
+    - LSFT
+    - ""
+    - F11
+    - C ALT F4
+    - F5
+    - F6
+    - SCRL
+    - ""
+    - ""
+    - ""
+    - ""
+    - ""
+    - ""
+    - ""
+    - F10
+    - F1
+    - F2
+    - F3
+    - PAUS
+    - ""
+    - ""
+    - ""
+    - ""
+    - QK BOOT
+    - ""
+    - ""
+combos:
+  - p: [19, 34]
+    k: { t: ">" }
+    l: [NUM]
+  - p: [19, 22]
+    k: { t: ";" }
+    l: [NUM]
+  - p: [19, 40]
+    k: { t: $$mdi:backspace-outline$$ }
+    l: [NUM]
+  - p: [1, 2]
+    k: { t: Caps WORD }
+    l: [BASE_HD, BASE_QW]
