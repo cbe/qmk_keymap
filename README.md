@@ -4,4 +4,4 @@
 
 ## Keymap
 
-![Layout](./doc/keymap.png)
+![Layout](./doc/keymap.svg)

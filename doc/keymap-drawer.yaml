@@ -2,7 +2,7 @@ layout: { qmk_keyboard: crkbd/rev1, layout_name: LAYOUT_split_3x6_3 }
 layers:
   BASE_HD:
     [
-      DF(BASE_QW),
+      BASE_QW,
       W,
       F,
       M,
@@ -47,7 +47,7 @@ layers:
     ]
   BASE_QW:
     [
-      DF(BASE_HD),
+      BASE_HD,
       Q,
       W,
       E,
@@ -103,12 +103,12 @@ layers:
     - "9"
     - /
     - ""
-    - { t: ESC, h: FN }
+    - ESC
     - LGUI
     - LALT
     - LCTL
     - LSFT
-    - ""
+    - { h: FN }
     - +
     - "4"
     - "5"
@@ -214,7 +214,7 @@ layers:
     - ""
     - ""
     - ""
-    - SPC
+    - $$mdi:keyboard-space$$
     - \
     - ""
     - { t: ▽, type: trans }
@@ -223,8 +223,8 @@ layers:
     - ""
     - ""
     - ""
-    - MPLY
-    - MUTE
+    - $$mdi:play-pause$$
+    - $$mdi:volume-off$$
     - UG TOGG
     - ""
     - HYPR
@@ -235,8 +235,8 @@ layers:
     - ""
     - ""
     - Mute Mic
-    - MNXT
-    - VOLU
+    - $$mdi:skip-next$$
+    - $$mdi:volume-plus$$
     - UG VALU
     - ""
     - RSFT
@@ -247,8 +247,8 @@ layers:
     - ""
     - ""
     - ""
-    - MPRV
-    - VOLD
+    - $$mdi:skip-previous$$
+    - $$mdi:volume-minus$$
     - UG VALD
     - ""
     - ""
@@ -318,14 +318,14 @@ layers:
     - F9
     - PSCR
     - ""
-    - { t: ▽, type: trans }
+    - ""
     - LGUI
     - LALT
     - LCTL
     - LSFT
-    - ""
+    - { t: ▽, type: trans }
     - F11
-    - C ALT F4
+    - { t: F4, h: Alt F4 }
     - F5
     - F6
     - SCRL
@@ -360,4 +360,7 @@ combos:
     l: [NUM]
   - p: [1, 2]
     k: { t: Caps WORD }
-    l: [BASE_HD, BASE_QW]
+    l: [BASE_HD]
+draw_config:
+  dark_mode: false
+  draw_key_sides: true
