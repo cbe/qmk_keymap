@@ -29,25 +29,22 @@ enum layers {
     _FN
 };
 
+enum custom_keycodes {
+    TOGGLE_CAPS_WORD = SAFE_RANGE
+};
+
 // Combos
 #ifdef COMBO_ENABLE
-    enum combos {
-        CAPS_WORD,
-        NUM_ARROW,
-        NUM_COLON,
-        NUM_BSPC
-    };
-
-    const uint16_t PROGMEM caps_word[]     = {KC_W, KC_F   , COMBO_END};
+    const uint16_t PROGMEM toggle_cw[]     = {KC_W, HD2_LRA, COMBO_END};
     const uint16_t PROGMEM num_arrow[]     = {KC_4, KC_EQL , COMBO_END};
     const uint16_t PROGMEM num_colon[]     = {KC_4, KC_ASTR, COMBO_END};
     const uint16_t PROGMEM num_backspace[] = {KC_4, KC_0   , COMBO_END};
 
     combo_t key_combos[] = {
-        [CAPS_WORD] = COMBO(caps_word    , CW_TOGG),
-        [NUM_ARROW] = COMBO(num_arrow    , KC_GT  ),
-        [NUM_COLON] = COMBO(num_colon    , KC_SCLN),
-        [NUM_BSPC]  = COMBO(num_backspace, KC_BSPC),
+        COMBO(toggle_cw    , TOGGLE_CAPS_WORD),
+        COMBO(num_arrow    , KC_GT  ),
+        COMBO(num_colon    , KC_SCLN),
+        COMBO(num_backspace, KC_BSPC),
     };
 #endif
 
@@ -122,6 +119,12 @@ void matrix_scan_user(void) {
 // Key processing
 bool process_record_user(uint16_t keycode, keyrecord_t* record) {
     switch (keycode) {
+        // Toggle caps word
+        case TOGGLE_CAPS_WORD:
+            if (record->event.pressed) {
+                caps_word_toggle();
+            }
+            return false;
         // Left click on tap, Middle click on hold
         case MS_BTN1:
             return process_tap_or_long_press_key(record, MS_BTN3);
