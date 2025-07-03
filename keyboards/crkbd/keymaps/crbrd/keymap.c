@@ -48,6 +48,24 @@ enum custom_keycodes {
     };
 #endif
 
+// Tap dance
+#ifdef TAP_DANCE_ENABLE
+    enum {
+        TD_EMM, // Enter/Media/Mouse
+    };
+
+    tap_dance_action_t tap_dance_actions[] = {
+        [TD_EMM] = ACTION_TAP_DANCE_DOUBLE(LT(_MED,KC_ENT), MO(_MOUSE)),
+    };
+
+    // Add tap dance item to your keymap in place of a keycode
+    // const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
+    //     // ...
+    //     TD(TD_ESC_CAPS)
+    //     // ...
+    // };
+#endif
+
 // Custom Tap-Hold
 // See: https://getreuer.info/posts/keyboards/triggers/index.html#tap-vs.-long-press
 // Helper for implementing tap vs. long-press keys. Given a tap-hold
@@ -146,7 +164,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       XXXXXXX,    KC_X,    KC_C,    KC_L,    KC_D,    KC_G,                      KC_SCLN,    KC_U,    KC_O,    KC_Y,    KC_K, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                        XXXXXXX,  LT(_NUM,KC_SPC),  LT(_NAV,KC_TAB),     LT(_MED,KC_ENT), LT(_SYM,KC_BSPC), XXXXXXX
+                        XXXXXXX,  LT(_NUM,KC_SPC),  LT(_NAV,KC_TAB),          TD(TD_EMM), LT(_SYM,KC_BSPC), XXXXXXX
                     //`--------------------------------------------'  `--------------------------------------------'
   ),
 
@@ -158,7 +176,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       XXXXXXX,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                         KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                        XXXXXXX,  LT(_NUM,KC_SPC),  LT(_NAV,KC_TAB),     LT(_MED,KC_ENT), LT(_SYM,KC_BSPC), XXXXXXX
+                        XXXXXXX,  LT(_NUM,KC_SPC),  LT(_NAV,KC_TAB),          TD(TD_EMM), LT(_SYM,KC_BSPC), XXXXXXX
                     //`--------------------------------------------'  `--------------------------------------------'
   ),
 
