@@ -22,7 +22,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #define CHORDAL_HOLD
 #define FLOW_TAP_TERM 150
-#define OLED_TIMEOUT 10000
+#define OLED_TIMEOUT 15000
 #define QUICK_TAP_TERM 120
 #define TAPPING_TERM 180
 #define TAPPING_TERM_PER_KEY
