@@ -48,6 +48,76 @@ enum custom_keycodes {
     };
 #endif
 
+// Tap dance
+#ifdef TAP_DANCE_ENABLE
+    enum {
+        TD_TNM, // Tab/Navigation/Mouse
+    };
+
+    // Possible tap dance states
+    typedef enum {
+        TD_NONE,
+        TD_UNKNOWN,
+        TD_SINGLE_TAP,
+        TD_SINGLE_HOLD,
+        TD_DOUBLE_TAP,
+        TD_DOUBLE_TAP_HOLD
+    } td_state_t;
+    static td_state_t td_state;
+
+    td_state_t cur_dance(tap_dance_state_t *state);
+
+    void dance_enter_mouse_media_finished(tap_dance_state_t *state, void *user_data) {
+        td_state = cur_dance(state);
+        switch (td_state) {
+            case TD_SINGLE_TAP:
+                register_code16(KC_TAB);
+                break;
+            case TD_SINGLE_HOLD:
+                layer_on(_NAV);
+                break;
+            case TD_DOUBLE_TAP_HOLD:
+                layer_on(_MOUSE);
+                break;
+            default:
+                break;
+        }
+    }
+
+    void dance_enter_mouse_media_reset(tap_dance_state_t *state, void *user_data) {
+        switch (td_state) {
+            case TD_SINGLE_TAP:
+                unregister_code16(KC_TAB);
+                break;
+            case TD_SINGLE_HOLD:
+                layer_off(_NAV);
+                break;
+            case TD_DOUBLE_TAP_HOLD:
+                layer_off(_MOUSE);
+                break;
+            default:
+                break;
+        }
+    }
+
+    tap_dance_action_t tap_dance_actions[] = {
+        [TD_TNM] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, dance_enter_mouse_media_finished, dance_enter_mouse_media_reset),
+    };
+
+    // Determine the tapdance state to return
+    td_state_t cur_dance(tap_dance_state_t *state) {
+        if (state->count == 1) {
+            if (state->interrupted || !state->pressed) return TD_SINGLE_TAP;
+            else return TD_SINGLE_HOLD;
+        }
+        if (state->count == 2) {
+            if (state->interrupted || !state->pressed) return TD_DOUBLE_TAP;
+            else return TD_DOUBLE_TAP_HOLD;
+        }
+        else return TD_UNKNOWN;
+    }
+#endif
+
 // Custom Tap-Hold
 // See: https://getreuer.info/posts/keyboards/triggers/index.html#tap-vs.-long-press
 // Helper for implementing tap vs. long-press keys. Given a tap-hold
@@ -68,7 +138,7 @@ const int LAYER_SWITCH_TAPPING_TERM_REDUCTION = 40;
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case LT(_NUM,KC_SPC):
-        case LT(_NAV,KC_TAB):
+        case TD(TD_TNM):
         case LT(_MED,KC_ENT):
         case LT(_SYM,KC_BSPC):
         case LT(_FN,XXXXXXX):
@@ -146,7 +216,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       XXXXXXX,    KC_X,    KC_C,    KC_L,    KC_D,    KC_G,                      KC_SCLN,    KC_U,    KC_O,    KC_Y,    KC_K, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                        XXXXXXX,  LT(_NUM,KC_SPC),  LT(_NAV,KC_TAB),     LT(_MED,KC_ENT), LT(_SYM,KC_BSPC), XXXXXXX
+                        XXXXXXX,  LT(_NUM,KC_SPC),       TD(TD_TNM),     LT(_MED,KC_ENT), LT(_SYM,KC_BSPC), XXXXXXX
                     //`--------------------------------------------'  `--------------------------------------------'
   ),
 
@@ -158,7 +228,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       XXXXXXX,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                         KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                        XXXXXXX,  LT(_NUM,KC_SPC),  LT(_NAV,KC_TAB),     LT(_MED,KC_ENT), LT(_SYM,KC_BSPC), XXXXXXX
+                        XXXXXXX,  LT(_NUM,KC_SPC),       TD(TD_TNM),     LT(_MED,KC_ENT), LT(_SYM,KC_BSPC), XXXXXXX
                     //`--------------------------------------------'  `--------------------------------------------'
   ),
 
