@@ -151,7 +151,7 @@ layers:
     - LALT
     - LCTL
     - LSFT
-    - ""
+    - { t: ▽, type: trans }
     - PGDN
     - LEFT
     - DOWN
@@ -343,7 +343,7 @@ layers:
     - PAUS
     - ""
     - ""
-    - ""
+    - { t: ▽, type: trans }
     - ""
     - QK BOOT
     - ""

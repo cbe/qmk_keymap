@@ -34,7 +34,6 @@ enum custom_keycodes {
 };
 
 #include "combos.c"
-#include "tap_dances.c"
 #include "flow_tap.c"
 #include "oled.c"
 
@@ -58,10 +57,11 @@ const int LAYER_SWITCH_TAPPING_TERM_REDUCTION = 40;
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case LT(_NUM,KC_SPC):
-        case TD(TD_TNM):
+        case LT(_NAV,KC_TAB):
         case LT(_MED,KC_ENT):
         case LT(_SYM,KC_BSPC):
         case LT(_FN,XXXXXXX):
+        case LT(_MOUSE,XXXXXXX):
             return TAPPING_TERM - LAYER_SWITCH_TAPPING_TERM_REDUCTION;
         default:
             return TAPPING_TERM;
@@ -98,7 +98,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       XXXXXXX,    KC_X,    KC_C,    KC_L,    KC_D,    KC_G,                      KC_SCLN,    KC_U,    KC_O,    KC_Y,    KC_K, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                        XXXXXXX,  LT(_NUM,KC_SPC),       TD(TD_TNM),     LT(_MED,KC_ENT), LT(_SYM,KC_BSPC), XXXXXXX
+                        XXXXXXX,  LT(_NUM,KC_SPC),  LT(_NAV,KC_TAB),     LT(_MED,KC_ENT), LT(_SYM,KC_BSPC), XXXXXXX
                     //`--------------------------------------------'  `--------------------------------------------'
   ),
 
@@ -110,7 +110,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       XXXXXXX,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                         KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                        XXXXXXX,  LT(_NUM,KC_SPC),       TD(TD_TNM),     LT(_MED,KC_ENT), LT(_SYM,KC_BSPC), XXXXXXX
+                        XXXXXXX,  LT(_NUM,KC_SPC),  LT(_NAV,KC_TAB),     LT(_MED,KC_ENT), LT(_SYM,KC_BSPC), XXXXXXX
                     //`--------------------------------------------'  `--------------------------------------------'
   ),
 
@@ -130,7 +130,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
       XXXXXXX, XXXXXXX, KC_RALT,  KC_MEH, KC_HYPR, XXXXXXX,                      KC_PGUP, KC_HOME,   KC_UP,  KC_END,A(KC_LEFT),XXXXXXX,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      XXXXXXX, KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, XXXXXXX,                      KC_PGDN, KC_LEFT, KC_DOWN, KC_RGHT,A(KC_RGHT),XXXXXXX,
+      XXXXXXX, KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT,LT(_MOUSE,XXXXXXX),            KC_PGDN, KC_LEFT, KC_DOWN, KC_RGHT,A(KC_RGHT),XXXXXXX,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                 XXXXXXX,C(S(KC_TAB)),C(KC_TAB), XXXXXXX, QK_LLCK, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
