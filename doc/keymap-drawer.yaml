@@ -151,7 +151,7 @@ layers:
     - LALT
     - LCTL
     - LSFT
-    - { t: ▽, type: trans }
+    - { h: MOUSE }
     - PGDN
     - LEFT
     - DOWN
@@ -280,7 +280,7 @@ layers:
     - LALT
     - LCTL
     - LSFT
-    - ""
+    - { t: ▽, type: trans }
     - MS WHLD
     - MS LEFT
     - MS DOWN
@@ -303,7 +303,7 @@ layers:
     - ""
     - { t: ▽, type: trans }
     - MS BTN2
-    - MS BTN1
+    - { t: MS BTN1, h: MS BTN3 }
     - ""
   FN:
     - ""

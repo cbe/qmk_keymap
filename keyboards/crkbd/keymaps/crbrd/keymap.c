@@ -77,8 +77,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t* record) {
                 caps_word_toggle();
             }
             return false;
+        // Custom Tap-Hold
         // Left click on tap, Middle click on hold
-        case MS_BTN1:
+        case C_MS_CLK:
             return process_tap_or_long_press_key(record, MS_BTN3);
         // F4 on tap, Alt + F4 on hold
         case C_ALT_F4:
@@ -170,7 +171,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, QK_LLCK, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                        XXXXXXX,          XXXXXXX,          _______,             MS_BTN2,          MS_BTN1, XXXXXXX
+                        XXXXXXX,          XXXXXXX,          _______,             MS_BTN2,         C_MS_CLK, XXXXXXX
                     //`--------------------------------------------'  `--------------------------------------------'
   ),
 

@@ -65,6 +65,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 // Custom Tap-Hold
 #define C_ALT_F4 LT(0, KC_F4)
+#define C_MS_CLK LT(0, MS_BTN1)
 
 #ifdef RGBLIGHT_ENABLE
     #define RGBLIGHT_LIMIT_VAL 120
