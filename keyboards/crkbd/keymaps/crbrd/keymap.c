@@ -30,7 +30,9 @@ enum layers {
 };
 
 enum custom_keycodes {
-    TOGGLE_CAPS_WORD = SAFE_RANGE
+    TOGGLE_CAPS_WORD = SAFE_RANGE,
+    BWSR_BCK, // Browser back
+    BWSR_FWD, // Browser forward
 };
 
 #include "combos.c"
@@ -71,13 +73,63 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
 // Key processing
 bool process_record_user(uint16_t keycode, keyrecord_t* record) {
     switch (keycode) {
+        // ==================
+        // Custom keycodes
+        // ==================
         // Toggle caps word
         case TOGGLE_CAPS_WORD:
             if (record->event.pressed) {
                 caps_word_toggle();
             }
             return false;
+        case BWSR_BCK:
+            switch (detected_host_os()) {
+                case OS_LINUX:
+                case OS_WINDOWS:
+                    del_mods(MOD_MASK_CSAG);
+                    set_mods(MOD_MASK_ALT);
+                    register_code(KC_LEFT);
+                    unregister_code(KC_LEFT);
+                    del_mods(MOD_MASK_ALT);
+                    break;
+                case OS_MACOS:
+                    del_mods(MOD_MASK_CSAG);
+                    set_mods(MOD_MASK_GUI);
+                    register_code(KC_LEFT);
+                    unregister_code(KC_LEFT);
+                    del_mods(MOD_MASK_GUI);
+                    break;
+                case OS_IOS:
+                case OS_UNSURE:
+                    break;
+            }
+            return false;
+        case BWSR_FWD:
+            switch (detected_host_os()) {
+                case OS_LINUX:
+                case OS_WINDOWS:
+                    del_mods(MOD_MASK_CSAG);
+                    set_mods(MOD_MASK_ALT);
+                    register_code(KC_RGHT);
+                    unregister_code(KC_RGHT);
+                    del_mods(MOD_MASK_ALT);
+                    break;
+                case OS_MACOS:
+                    del_mods(MOD_MASK_CSAG);
+                    set_mods(MOD_MASK_GUI);
+                    register_code(KC_RGHT);
+                    unregister_code(KC_RGHT);
+                    del_mods(MOD_MASK_GUI);
+                    break;
+                case OS_IOS:
+                case OS_UNSURE:
+                    break;
+            }
+            return false;
+
+        // ==================
         // Custom Tap-Hold
+        // ==================
         // Left click on tap, Middle click on hold
         case C_MS_CLK:
             return process_tap_or_long_press_key(record, MS_BTN3);
@@ -129,9 +181,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [_NAV] = LAYOUT_split_3x6_3(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-      XXXXXXX, XXXXXXX, KC_RALT,  KC_MEH, KC_HYPR, XXXXXXX,                      KC_PGUP, KC_HOME,   KC_UP,  KC_END,A(KC_LEFT),XXXXXXX,
+      XXXXXXX, XXXXXXX, KC_RALT,  KC_MEH, KC_HYPR, XXXXXXX,                      KC_PGUP, KC_HOME,   KC_UP,  KC_END, BWSR_BCK,XXXXXXX,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      XXXXXXX, KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT,LT(_MOUSE,XXXXXXX),            KC_PGDN, KC_LEFT, KC_DOWN, KC_RGHT,A(KC_RGHT),XXXXXXX,
+      XXXXXXX, KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT,LT(_MOUSE,XXXXXXX),            KC_PGDN, KC_LEFT, KC_DOWN, KC_RGHT, BWSR_FWD,XXXXXXX,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                 XXXXXXX,C(S(KC_TAB)),C(KC_TAB), XXXXXXX, QK_LLCK, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|

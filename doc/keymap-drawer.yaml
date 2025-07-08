@@ -144,7 +144,7 @@ layers:
     - HOME
     - UP
     - END
-    - Alt+LEFT
+    - WWW <-
     - ""
     - ""
     - LGUI
@@ -156,7 +156,7 @@ layers:
     - LEFT
     - DOWN
     - RGHT
-    - Alt+RGHT
+    - WWW ->
     - ""
     - ""
     - ""
@@ -165,8 +165,8 @@ layers:
     - ""
     - ""
     - ""
-    - Ctl+Sft+TAB
-    - Ctl+TAB
+    - Prev tab
+    - Next tab
     - ""
     - QK LLCK
     - ""
