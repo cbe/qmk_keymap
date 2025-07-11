@@ -145,9 +145,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t* record) {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_BASE_HD] = LAYOUT_split_3x6_3(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
- DF(_BASE_QW),    KC_W, HD2_LRA, HD2_LME, HD2_LHY,    KC_V,                      KC_SLSH, HD2_RHY, HD2_RME, HD2_RRA,    KC_Z, XXXXXXX,
+ DF(_BASE_QW),    KC_W,    HR_F,    HR_M,    HR_P,    KC_V,                      KC_SLSH,  HR_DOT,    HR_Q,  HR_QUO,    KC_Z, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-       KC_ESC, HD3_LGU, HD3_LLA, HD3_LCT, HD3_LSH,    KC_B,                      KC_COMM, HD3_RSH, HD3_RCT, HD3_RLA, HD3_RGU,    KC_J,
+       KC_ESC,    HR_R,    HR_S,    HR_N,    HR_T,    KC_B,                      KC_COMM,    HR_A,    HR_E,    HR_I,    HR_H,    KC_J,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       XXXXXXX,    KC_X,    KC_C,    KC_L,    KC_D,    KC_G,                      KC_SCLN,    KC_U,    KC_O,    KC_Y,    KC_K, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
@@ -185,9 +185,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       XXXXXXX, KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT,LT(_MOUSE,XXXXXXX),            KC_PGDN, KC_LEFT, KC_DOWN, KC_RGHT, BWSR_FWD,XXXXXXX,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,               G(KC_GRV),C(S(KC_TAB)),C(KC_TAB), XXXXXXX, QK_LLCK, XXXXXXX,
+      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      XXXXXXX,  C_PTAB,  C_NTAB, XXXXXXX, QK_LLCK, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                        XXXXXXX,          XXXXXXX,          _______,             XXXXXXX,          XXXXXXX, XXXXXXX
+                        XXXXXXX,          XXXXXXX,          _______,              C_SWIN,          XXXXXXX, XXXXXXX
                     //`--------------------------------------------'  `--------------------------------------------'
   ),
 

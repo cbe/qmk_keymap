@@ -29,7 +29,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 // Custom keycodes to keep keymap a little less cluttered, see:
 // https://docs.qmk.fm/faq_keymap#how-can-i-make-custom-names-for-complex-keycodes
-// Home Row Mods Row 3
+// Home Row Mods
+// QWERTY
 #define HR3_LGU LGUI_T(KC_A)
 #define HR3_LLA LALT_T(KC_S)
 #define HR3_LCT LCTL_T(KC_D)
@@ -38,7 +39,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define HR3_RCT RCTL_T(KC_K)
 #define HR3_RLA LALT_T(KC_L)
 #define HR3_RGU RGUI_T(KC_SCLN)
-// Home Row Mods Row Row 2
 #define HR2_LRA RALT_T(KC_W)
 #define HR2_LME MEH_T(KC_E)
 #define HR2_LHY ALL_T(KC_R)
@@ -46,23 +46,25 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define HR2_RME MEH_T(KC_I)
 #define HR2_RRA RALT_T(KC_O)
 // Hands Down Neu
-// Home Row Mods Row 3
-#define HD3_LGU LGUI_T(KC_R)
-#define HD3_LLA LALT_T(KC_S)
-#define HD3_LCT LCTL_T(KC_N)
-#define HD3_LSH LSFT_T(KC_T)
-#define HD3_RSH RSFT_T(KC_A)
-#define HD3_RCT RCTL_T(KC_E)
-#define HD3_RLA LALT_T(KC_I)
-#define HD3_RGU RGUI_T(KC_H)
-// Home Row Mods Row Row 2
-#define HD2_LRA RALT_T(KC_F)
-#define HD2_LME MEH_T(KC_M)
-#define HD2_LHY ALL_T(KC_P)
-#define HD2_RHY ALL_T(KC_DOT)
-#define HD2_RME MEH_T(KC_Q)
-#define HD2_RRA RALT_T(KC_QUOT)
+#define HR_F RALT_T(KC_F)
+#define HR_M MEH_T(KC_M)
+#define HR_P ALL_T(KC_P)
+#define HR_DOT ALL_T(KC_DOT)
+#define HR_Q MEH_T(KC_Q)
+#define HR_QUO RALT_T(KC_QUOT)
+#define HR_R LGUI_T(KC_R)
+#define HR_S LALT_T(KC_S)
+#define HR_N LCTL_T(KC_N)
+#define HR_T LSFT_T(KC_T)
+#define HR_A RSFT_T(KC_A)
+#define HR_E RCTL_T(KC_E)
+#define HR_I LALT_T(KC_I)
+#define HR_H RGUI_T(KC_H)
 
+// Custom keycodes
+#define C_SWIN   G(KC_GRV)    // Switch window instance
+#define C_PTAB   C(S(KC_TAB)) // Previous tab
+#define C_NTAB   C(KC_TAB)    // Next tab
 // Custom Tap-Hold
 #define C_ALT_F4 LT(0, KC_F4)
 #define C_MS_CLK LT(0, MS_BTN1)

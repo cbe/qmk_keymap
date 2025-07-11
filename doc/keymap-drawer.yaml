@@ -173,7 +173,7 @@ layers:
     - ""
     - ""
     - { t: ▽, type: trans }
-    - ""
+    - $$mdi:window-restore$$
     - ""
     - ""
   SYM:
