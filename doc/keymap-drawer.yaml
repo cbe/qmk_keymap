@@ -133,6 +133,49 @@ layers:
     - DEL
     - "0"
     - ""
+  FN:
+    - ""
+    - ""
+    - RALT
+    - MEH
+    - HYPR
+    - ""
+    - F12
+    - F7
+    - F8
+    - F9
+    - PSCR
+    - ""
+    - ""
+    - LGUI
+    - LALT
+    - LCTL
+    - LSFT
+    - { t: ▽, type: trans }
+    - F11
+    - { t: F4, h: Alt F4 }
+    - F5
+    - F6
+    - SCRL
+    - ""
+    - ""
+    - ""
+    - ""
+    - ""
+    - ""
+    - ""
+    - F10
+    - F1
+    - F2
+    - F3
+    - PAUS
+    - ""
+    - ""
+    - { t: ▽, type: trans }
+    - ""
+    - QK BOOT
+    - ""
+    - ""
   NAV:
     - ""
     - ""
@@ -175,6 +218,49 @@ layers:
     - { t: ▽, type: trans }
     - $$mdi:window-restore$$
     - ""
+    - ""
+  MOUSE:
+    - ""
+    - ""
+    - RALT
+    - MEH
+    - HYPR
+    - ""
+    - MS WHLU
+    - MS WHLL
+    - MS UP
+    - MS WHLR
+    - ""
+    - ""
+    - ""
+    - LGUI
+    - LALT
+    - LCTL
+    - LSFT
+    - { t: ▽, type: trans }
+    - MS WHLD
+    - MS LEFT
+    - MS DOWN
+    - MS RGHT
+    - ""
+    - ""
+    - ""
+    - ""
+    - ""
+    - ""
+    - ""
+    - ""
+    - ""
+    - ""
+    - ""
+    - ""
+    - QK LLCK
+    - ""
+    - ""
+    - ""
+    - { t: ▽, type: trans }
+    - MS BTN2
+    - { t: MS BTN1, h: MS BTN3 }
     - ""
   SYM:
     - ""
@@ -260,92 +346,6 @@ layers:
     - ""
     - ""
     - { t: ▽, type: trans }
-    - ""
-    - ""
-  MOUSE:
-    - ""
-    - ""
-    - RALT
-    - MEH
-    - HYPR
-    - ""
-    - MS WHLU
-    - MS WHLL
-    - MS UP
-    - MS WHLR
-    - ""
-    - ""
-    - ""
-    - LGUI
-    - LALT
-    - LCTL
-    - LSFT
-    - { t: ▽, type: trans }
-    - MS WHLD
-    - MS LEFT
-    - MS DOWN
-    - MS RGHT
-    - ""
-    - ""
-    - ""
-    - ""
-    - ""
-    - ""
-    - ""
-    - ""
-    - ""
-    - ""
-    - ""
-    - ""
-    - QK LLCK
-    - ""
-    - ""
-    - ""
-    - { t: ▽, type: trans }
-    - MS BTN2
-    - { t: MS BTN1, h: MS BTN3 }
-    - ""
-  FN:
-    - ""
-    - ""
-    - RALT
-    - MEH
-    - HYPR
-    - ""
-    - F12
-    - F7
-    - F8
-    - F9
-    - PSCR
-    - ""
-    - ""
-    - LGUI
-    - LALT
-    - LCTL
-    - LSFT
-    - { t: ▽, type: trans }
-    - F11
-    - { t: F4, h: Alt F4 }
-    - F5
-    - F6
-    - SCRL
-    - ""
-    - ""
-    - ""
-    - ""
-    - ""
-    - ""
-    - ""
-    - F10
-    - F1
-    - F2
-    - F3
-    - PAUS
-    - ""
-    - ""
-    - { t: ▽, type: trans }
-    - ""
-    - QK BOOT
     - ""
     - ""
 combos:
