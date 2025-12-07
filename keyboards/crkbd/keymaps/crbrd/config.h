@@ -30,21 +30,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 // Custom keycodes to keep keymap a little less cluttered, see:
 // https://docs.qmk.fm/faq_keymap#how-can-i-make-custom-names-for-complex-keycodes
 // Home Row Mods
-// QWERTY
-#define HR3_LGU LGUI_T(KC_A)
-#define HR3_LLA LALT_T(KC_S)
-#define HR3_LCT LCTL_T(KC_D)
-#define HR3_LSH LSFT_T(KC_F)
-#define HR3_RSH RSFT_T(KC_J)
-#define HR3_RCT RCTL_T(KC_K)
-#define HR3_RLA LALT_T(KC_L)
-#define HR3_RGU RGUI_T(KC_SCLN)
-#define HR2_LRA RALT_T(KC_W)
-#define HR2_LME MEH_T(KC_E)
-#define HR2_LHY ALL_T(KC_R)
-#define HR2_RHY ALL_T(KC_U)
-#define HR2_RME MEH_T(KC_I)
-#define HR2_RRA RALT_T(KC_O)
 // Hands Down Neu
 #define HR_F RALT_T(KC_F)
 #define HR_M MEH_T(KC_M)

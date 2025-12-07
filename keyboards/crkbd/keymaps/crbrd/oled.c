@@ -19,21 +19,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #ifdef OLED_ENABLE
     // Keep track of the current default layer
-    int default_layer = _BASE_HD;
-    void track_default_layer(void) {
-        uint32_t layer_state = default_layer_state;
-
-        // Check which layer is active
-        if (layer_state & (1UL << _BASE_HD)) {
-            default_layer = _BASE_HD;
-        } else if (layer_state & (1UL << _BASE_QW)) {
-            default_layer = _BASE_QW;
-        }
-    }
-
-    void matrix_scan_user(void) {
-        track_default_layer();
-    }
+    int default_layer = _BASE;
 
     static void render_image(void) {
         static const char PROGMEM boba_fett[] = {
@@ -155,20 +141,12 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
             // Layer
             oled_write("Layer: ", false);
-            if (get_highest_layer(layer_state) <= _BASE_QW) {
-                switch (default_layer) {
-                    case _BASE_HD:
-                        oled_write("base [rsnt]", false);
-                        break;
-                    case _BASE_QW:
-                        oled_write("base [asdf]", false);
-                        break;
-                }
+            if (get_highest_layer(layer_state) <= _BASE) {
+                oled_write("base [rsnt]", false);
             } else {
                 switch (get_highest_layer(layer_state)) {
-                    case _BASE_HD:
-                    case _BASE_QW:
-                        // Do nothing as it has to be handled differently, see `track_default_layer`
+                    case _BASE:
+                        // Do nothing as it has to be handled differently, see `get_highest_layer`
                         break;
                     case _NUM:
                         oled_write("numbers", false);

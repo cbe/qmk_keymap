@@ -19,8 +19,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include QMK_KEYBOARD_H
 
 enum layers {
-    _BASE_HD, // Hands Down Neu
-    _BASE_QW, // QWERTY
+    _BASE,
     _NUM,
     _NAV,
     _SYM,
@@ -143,25 +142,13 @@ bool process_record_user(uint16_t keycode, keyrecord_t* record) {
 
 // Keymap
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-    [_BASE_HD] = LAYOUT_split_3x6_3(
+    [_BASE] = LAYOUT_split_3x6_3(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
- DF(_BASE_QW),    KC_W,    HR_F,    HR_M,    HR_P,    KC_V,                      KC_SLSH,  HR_DOT,    HR_Q,  HR_QUO,    KC_Z, XXXXXXX,
+      XXXXXXX,    KC_W,    HR_F,    HR_M,    HR_P,    KC_V,                      KC_SLSH,  HR_DOT,    HR_Q,  HR_QUO,    KC_Z, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
        KC_ESC,    HR_R,    HR_S,    HR_N,    HR_T,    KC_B,                      KC_COMM,    HR_A,    HR_E,    HR_I,    HR_H,    KC_J,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       XXXXXXX,    KC_X,    KC_C,    KC_L,    KC_D,    KC_G,                      KC_SCLN,    KC_U,    KC_O,    KC_Y,    KC_K, XXXXXXX,
-  //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                        XXXXXXX,  LT(_NUM,KC_SPC),  LT(_NAV,KC_TAB),     LT(_MED,KC_ENT), LT(_SYM,KC_BSPC), XXXXXXX
-                    //`--------------------------------------------'  `--------------------------------------------'
-  ),
-
-    [_BASE_QW] = LAYOUT_split_3x6_3(
-  //,-----------------------------------------------------.                    ,-----------------------------------------------------.
- DF(_BASE_HD),    KC_Q, HR2_LRA, HR2_LME, HR2_LHY,    KC_T,                         KC_Y, HR2_RHY, HR2_RME, HR2_RRA,    KC_P, XXXXXXX,
-  //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-       KC_ESC, HR3_LGU, HR3_LLA, HR3_LCT, HR3_LSH,    KC_G,                         KC_H, HR3_RSH, HR3_RCT, HR3_RLA, HR3_RGU, KC_QUOT,
-  //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      XXXXXXX,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                         KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                         XXXXXXX,  LT(_NUM,KC_SPC),  LT(_NAV,KC_TAB),     LT(_MED,KC_ENT), LT(_SYM,KC_BSPC), XXXXXXX
                     //`--------------------------------------------'  `--------------------------------------------'
